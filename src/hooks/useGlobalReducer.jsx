@@ -1,6 +1,7 @@
 // Import necessary hooks and functions from React.
-import { useContext, useReducer, createContext } from "react";
+import { useContext, useReducer, createContext, useEffect } from "react";
 import storeReducer, { initialStore } from "../store"  // Import the reducer and the initial state.
+import { getCharacter, getPlanet } from "../apiQuery/starwarsApi"
 
 // Create a context to hold the global state of the application
 // We will call this global state the "store" to avoid confusion while using local states
@@ -12,6 +13,34 @@ export function StoreProvider({ children }) {
     // Initialize reducer with the initial state.
     const [store, dispatch] = useReducer(storeReducer, initialStore())
     // Provide the store and dispatch method to all child components.
+
+    const loadContent = async () => {
+        try {
+            const people = await getCharacter();
+            const planets = await getPlanet();
+            console.log("People:", people);
+            console.log("Planets:", planets);
+
+
+            dispatch({
+                type: "SET_CHARACTERS",
+                payload: people
+            })
+            dispatch({
+                type: "SET_PLANETS",
+                payload: planets
+            })
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        loadContent()
+    }, [])
+
+
     return <StoreContext.Provider value={{ store, dispatch }}>
         {children}
     </StoreContext.Provider>

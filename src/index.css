@@ -1,0 +1,29 @@
+.logo_height {
+    height: 45px;
+}
+
+.the_carousel {
+    border: 0;
+    display: flex;
+    overflow-x: scroll;
+    gap: 15px;
+}
+
+.card_shape {
+    border: 1px solid lightgray;
+    min-width: 250px;
+    border-radius: 5px;
+}
+
+.counter-badge {
+    background-color: #6c757d;
+    min-width: 20px;
+    height: 20px;
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+}
