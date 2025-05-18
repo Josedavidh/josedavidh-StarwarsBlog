@@ -27,3 +27,13 @@
     font-size: 12px;
     font-weight: 500;
 }
+
+.card-footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heart-icon {
+    transition: color 0.3s ease;
+}
