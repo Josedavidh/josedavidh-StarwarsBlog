@@ -1,33 +1,68 @@
 import { Link } from "react-router-dom";
 import starwarsLogo from "../assets/img/logo_starwars.png";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Navbar = () => {
+
+	const { store, dispatch } = useGlobalReducer()
+	const { favorites } = store
 
 	return (
 		<nav className="navbar navbar-light bg-light py-4">
 			<div className="container">
 				<Link to="/">
-					{/* <span className="navbar-brand mb-0 h1">React Boilerplate</span> */}
 					<img
 						src={starwarsLogo}
 						alt="Star Wars Logo"
 						className="navbar-brand logo_height"
 					/>
 				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<div class="dropdown d-flex flex-row">
-							<button className="btn btn-primary dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Favorites
-								<span className="counter-badge">3</span>
-							</button>
-							<ul className="dropdown-menu">
-								<li><button className="dropdown-item" type="button">Action</button></li>
-								<li><button className="dropdown-item" type="button">Another action</button></li>
-								<li><button className="dropdown-item" type="button">Something else here</button></li>
-							</ul>
-						</div>
-					</Link>
+
+				<div className="dropdown">
+					<button
+						className="btn btn-primary dropdown-toggle d-flex align-items-center gap-2"
+						type="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						Favorites
+						<span className="counter-badge">{favorites.length}</span>
+					</button>
+
+					<ul className="dropdown-menu dropdown-menu-end">
+						{
+							favorites.length > 0 ? (
+								favorites.map((item) => (
+
+									<li key={item._id}
+										className="d-flex align-items-center justify-content-between px-3 mb-2">
+										<Link
+											to={`/${item.group}/${item._id}`}
+											className='dropdown-item'
+										>
+											{item.properties?.name || "Unnamed"}
+										</Link>
+										<button
+											className="btn ms-2"
+											onClick={() => {
+												dispatch({
+													type: 'REMOVE_FAVORITE',
+													payload: item._id,
+												})
+											}}
+										>
+											<i class="fa-solid fa-trash"></i>
+										</button>
+									</li>
+
+								))
+							) : (
+								<li>
+									<span className="dropdown-item d-flex justify-content-center">EMPTY</span>
+								</li>
+							)
+						}
+					</ul>
 				</div>
 			</div>
 		</nav>

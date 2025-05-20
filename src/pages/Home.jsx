@@ -14,8 +14,8 @@ export const Home = () => {
 				<h1 className="text-danger">Characters</h1>
 				<div className="the_carousel">
 					{
-						characters.map((char) => {
-							const { properties, _id, image } = char
+						characters.map((character) => {
+							const { properties, _id, image } = character
 
 							return (
 								<div className="card card_shape" key={_id}>
@@ -38,7 +38,7 @@ export const Home = () => {
 										<div className="card-footer-buttons">
 
 											<Link
-												to={`/character/${_id}`}
+												to={`/people/${character._id}`}
 												className="btn btn-outline-primary">
 												Learn more!
 											</Link>
@@ -47,7 +47,7 @@ export const Home = () => {
 
 													dispatch({
 														type: "TOGGLE_FAVORITE",
-														payload: char
+														payload: character
 													})
 												}}>
 												{store.favorites.some((fav) => fav._id == _id) ?
@@ -91,7 +91,7 @@ export const Home = () => {
 										<div className="card-footer-buttons">
 
 											<Link
-												to={`/character/${_id}`}
+												to={`/planet/${_id}`}
 												className="btn btn-outline-primary">
 												Learn more!
 											</Link>
@@ -100,7 +100,7 @@ export const Home = () => {
 
 													dispatch({
 														type: "TOGGLE_FAVORITE",
-														payload: planets
+														payload: planet
 													})
 												}}>
 												{store.favorites.some((fav) => fav._id == _id) ?

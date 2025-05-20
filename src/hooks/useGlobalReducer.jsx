@@ -21,7 +21,6 @@ export function StoreProvider({ children }) {
             console.log("People:", people);
             console.log("Planets:", planets);
 
-
             dispatch({
                 type: "SET_CHARACTERS",
                 payload: people
