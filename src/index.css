@@ -37,3 +37,9 @@
 .heart-icon {
     transition: color 0.3s ease;
 }
+
+.img-detail{
+    width:70%;
+    border-radius:10px;
+    margin-bottom: 20px;
+}

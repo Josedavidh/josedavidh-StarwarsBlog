@@ -24,24 +24,24 @@ export const CharacterDetail = () => {
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
-                <div className="col-12 col-md-6 col-lg-4 detail-image">
+                <div className="col-12 col-md-6 col-lg-4 detail-image d-flex justify-content-end">
                     <img
                         src={detail.image}
                         alt={detail.properties.name}
-                        className="w-100"
+                        className="img-fluid img-detail"
                     />
                 </div>
                 <div className="col-12 col-md-6 col-lg-4 detail-text">
-                    <h1 className="text-danger">{detail.properties.name}</h1>
+                    <h1 className="text-dark">{detail.properties.name}</h1>
                     <p>{detail.description}</p>
                 </div>
                 <div className="col-12 d-flex justify-content-between text-danger border-top border-danger py-3 detail-feature flex-wrap">
-                    <p><span>Name</span><br />{detail.properties.name}</p>
-                    <p><span>Birth Year</span><br />{detail.properties.birth_year}</p>
-                    <p><span>Gender</span><br />{detail.properties.gender}</p>
-                    <p><span>Height</span><br />{detail.properties.height}</p>
-                    <p><span>Skin</span><br />{detail.properties.skin_color}</p>
-                    <p><span>Eye Color</span><br />{detail.properties.eye_color}</p>
+                    <p className="text-center"><span>Name</span><br />{detail.properties.name}</p>
+                    <p className="text-center"><span>Birth Year</span><br />{detail.properties.birth_year}</p>
+                    <p className="text-center"><span>Gender</span><br />{detail.properties.gender}</p>
+                    <p className="text-center"><span>Height</span><br />{detail.properties.height}</p>
+                    <p className="text-center"><span>Skin</span><br />{detail.properties.skin_color}</p>
+                    <p className="text-center"><span>Eye Color</span><br />{detail.properties.eye_color}</p>
                 </div>
             </div>
         </div>

@@ -44,7 +44,8 @@ export const Navbar = () => {
 										</Link>
 										<button
 											className="btn ms-2"
-											onClick={() => {
+											onClick={(e) => {
+												e.stopPropagation()
 												dispatch({
 													type: 'REMOVE_FAVORITE',
 													payload: item._id,

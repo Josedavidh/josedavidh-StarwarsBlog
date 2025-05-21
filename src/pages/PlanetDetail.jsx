@@ -24,24 +24,24 @@ export const PlanetDetail = () => {
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
-                <div className="col-12 col-md-6 col-lg-4 detail-image">
+                <div className="col-12 col-md-6 col-lg-4 detail-image  d-flex justify-content-end">
                     <img
                         src={detail.image}
                         alt={detail.properties.name}
-                        className="w-100"
+                        className="img-fluid img-detail"
                     />
                 </div>
                 <div className="col-12 col-md-6 col-lg-4 detail-text">
-                    <h1 className="text-danger">{detail.properties.name}</h1>
+                    <h1 className="text-dark">{detail.properties.name}</h1>
                     <p>{detail.description}</p>
                 </div>
                 <div className="col-12 d-flex justify-content-between text-danger border-top border-danger py-3 detail-feature flex-wrap">
-                    <p><span>Name</span><br />{detail.properties.name}</p>
-                    <p><span>Climate</span><br />{detail.properties.climate}</p>
-                    <p><span>Population</span><br />{detail.properties.population}</p>
-                    <p><span>Orbital Period</span><br />{detail.properties.orbital_period}</p>
-                    <p><span>Rotation Period</span><br />{detail.properties.rotation_period}</p>
-                    <p><span>Diameter</span><br />{detail.properties.diameter}</p>
+                    <p className="text-center"><span>Population</span><br />{detail.properties.population}</p>
+                    <p className="text-center"><span>Name</span><br />{detail.properties.name}</p>
+                    <p className="text-center"><span>Orbital Period</span><br />{detail.properties.orbital_period}</p>
+                    <p className="text-center"><span>Rotation Period</span><br />{detail.properties.rotation_period}</p>
+                    <p className="text-center"><span>Diameter</span><br />{detail.properties.diameter}</p>
+                    <p className="text-center"><span>Climate</span><br />{detail.properties.climate}</p>
                 </div>
             </div>
         </div>
