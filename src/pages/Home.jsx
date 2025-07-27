@@ -10,7 +10,7 @@ export const Home = () => {
 
 	return (
 		<div className="container">
-			<div>
+			<div className="container">
 				<h1 className="text-danger">Characters</h1>
 				<div className="the_carousel">
 					{
